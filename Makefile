@@ -13,6 +13,11 @@ test-coverage-1:
 test-coverage-2:
 	@NODE_ENV=test ./node_modules/.bin/istanbul cover \
 	./node_modules/mocha/bin/_mocha --report lcovonly test/run2.js -- -R spec
+	
+test-coverage-3:
+	@NODE_ENV=test ./node_modules/.bin/istanbul cover \
+	./node_modules/mocha/bin/_mocha --report lcovonly test/run3.js -- -R spec
+
 
 test-coveralls:
 	@NODE_ENV=test ./node_modules/.bin/istanbul cover \
@@ -27,6 +32,10 @@ test-coveralls-1:
 test-coveralls-2:
 	@NODE_ENV=test ./node_modules/.bin/istanbul cover \
 	./node_modules/mocha/bin/_mocha --report lcovonly test/run2.js -- -R spec && \
+		cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js --verbose
+test-coveralls-3:
+	@NODE_ENV=test ./node_modules/.bin/istanbul cover \
+	./node_modules/mocha/bin/_mocha --report lcovonly test/run3.js -- -R spec && \
 		cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js --verbose
 
 .PHONY: test
