@@ -11,3 +11,6 @@ jobs:
     - script: COVERALLS_FLAG_NAME=test-2 make test-coveralls-2
 notifications:
   webhooks: https://coveralls.io/webhook
+after_success:
+    - npm i nyc
+    - npm run nyc-test
