@@ -1,7 +1,6 @@
 sudo: false
-language:
-  - node_js:
-  - 17
+language: node_js:
+    - 17
 env:
   global:
     - COVERALLS_PARALLEL=true
